@@ -54,26 +54,32 @@ class _PaginationState extends State<Pagination> {
     });
   }
 
-  Future fetch() async {
-    // if (isLoading)return;
-    const limit = 20;
-    final url = Uri.parse(
-        'https://jsonplaceholder.typicode.com/posts?_limit=$limit&_page=$page');
-    final response = await http.get(url);
 
+  Future fetch() async {
+    const limit = 8;
+    final url = Uri.parse(
+      'https://dummyjson.com/products?limit=$limit&skip=$page',
+    );
+    final response = await http.get(url);
     if (response.statusCode == 200) {
-      final List newItems = json.decode(response.body);
+      final List newItems = json.decode(response.body)['products'];
       setState(() {
-        //هنا انت بتضيف عنصر عنصر زى كدا ['item 1','item 2' , 'item 3 ']  مينفعش كلهم على بعض فى ليست مره واحده زى كدا  newItems
         page++;
         if (newItems.length < limit) {
           hasMore = false;
         }
         items.addAll(newItems.map<String>((e) {
-          final title = e['id'];
+          final title = e['title'];
           return 'title : $title';
         }));
-        // (['ddddd','ffff','hhh']);
+
+        // Extract and store the image URLs
+        images.addAll(newItems.map<String>((e) {
+          final imagesList = e['images'];
+          // Assuming the first image in the list is the desired one
+          final imageUrl = imagesList.isNotEmpty ? imagesList[0] : '';
+          return imageUrl;
+        }));
       });
     }
   }
@@ -93,6 +99,7 @@ class _PaginationState extends State<Pagination> {
     });
     fetch();
   }
+  List<String> images = [];
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +117,12 @@ class _PaginationState extends State<Pagination> {
               if (index < items.length) {
                 final item = items[index];
                 return ListTile(
-                  title: Text(item),
+                  title: Column(
+                    children: [
+                      Text(item),
+                      Image.network(images[index]),
+                    ],
+                  ),
                 );
               } else {
                 return Padding(
