@@ -2,8 +2,8 @@
 
 
 
-import 'package:animation/screens/page_one.dart';
-import 'package:animation/screens/pageroute.dart';
+import 'package:animation/screens/from_slide_to_slide/page_one.dart';
+import 'package:animation/screens/from_slide_to_slide/pageroute.dart';
 import 'package:flutter/material.dart';
 
 class PageTwo extends StatelessWidget {
