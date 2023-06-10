@@ -43,6 +43,7 @@ dependencies:
   flutter_animate: ^4.1.1+1
   shimmer: ^3.0.0
   cached_network_image: ^3.2.0
+  lottie: any
 
 
 dev_dependencies:
@@ -71,6 +72,7 @@ flutter:
   assets:
     - lib/screens/container_animate/
     - assets/images/
+    - assets/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

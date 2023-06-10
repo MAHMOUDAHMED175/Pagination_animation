@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+import 'package:lottie/lottie.dart';
 import 'package:shimmer/shimmer.dart';
 
 class Shimmers extends StatelessWidget {
@@ -11,50 +12,66 @@ class Shimmers extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(),
-      body: Column(
-        children: [
-          CachedNetworkImage(
-            imageUrl:
-                'https://img.freepik.com/premium-photo/image-colorful-galaxy-sky-generative-ai_791316-9864.jpg',
-            height: 280,
-            placeholder: (context, url) =>
-                Center(
-                  child: Shimmer.fromColors(
-                    baseColor: Colors.red,
-                    highlightColor: Colors.black,
-                    period: const Duration(seconds: 1),
-                    direction: ShimmerDirection.ltr,
-                    // enabled: true,
-                    // loop: 4,
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 100,
-                          width: 100,
-                        ),
-                        const Icon(
-                          Icons.shield_moon,
-                          size: 180,
-                        ),
-                        const Text(
-                          'Shimmer',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 40.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-            errorWidget: (context, url, error) =>
-            const Text(
-              'Error',
-              style: TextStyle(color: Colors.white, fontSize: 40),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+
+            Lottie.asset('assets/kkk.json'),
+            Lottie.network(
+                'https://raw.githubusercontent.com/xvrh/lottie-flutter/master/example/assets/Mobilo/A.json'),
+
+
+            CachedNetworkImage(
+              imageUrl:
+                  'https://img.freepik.com/premium-photo/image-colorful-galaxy-sky-generative-ai_791316-9864.jpg',
+              height: 280,
+
+              // placeholder: (context, url) =>
+              //     Center(
+              //       child: Shimmer.fromColors(
+              //         baseColor: Colors.red,
+              //         highlightColor: Colors.black,
+              //         period: const Duration(seconds: 1),
+              //         direction: ShimmerDirection.ltr,
+              //         // enabled: true,
+              //         // loop: 4,
+              //         child: Column(
+              //           children: [
+              //             Container(
+              //               height: 100,
+              //               width: 100,
+              //             ),
+              //             const Icon(
+              //               Icons.shield_moon,
+              //               size: 180,
+              //             ),
+              //             const Text(
+              //               'Shimmer',
+              //               textAlign: TextAlign.center,
+              //               style: TextStyle(
+              //                 fontSize: 40.0,
+              //                 fontWeight: FontWeight.bold,
+              //               ),
+              //             ),
+              //           ],
+              //         ),
+              //       ),
+              //     ),
+              cacheManager: CacheManager(
+                  Config(
+                      'customCacheKey',
+                      stalePeriod: const Duration(days: 70)
+                  )
+              ),
+              errorWidget: (context, url, error) =>
+              const Text(
+                'Error',
+                style: TextStyle(color: Colors.white, fontSize: 40),
+              ),    progressIndicatorBuilder: (context, url, downloadProgress) =>
+                CircularProgressIndicator(value: downloadProgress.progress),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
