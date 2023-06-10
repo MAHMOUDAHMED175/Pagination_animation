@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'screens/alert/alert.dart';
-import 'screens/profile_image_move/profile_image_move.dart';
-import 'screens/rotate_container/reotate_container.dart';
+import 'screens/shimmer/shimmer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,8 +23,10 @@ class MyApp extends StatelessWidget {
           // ThreeDDrawer(),
           // Pagination(),
           // const AlertAnimate(),
-      // ContainerRotate(),
-        const ProfileImageMove(),
+          // ContainerRotate(),
+          //   const ProfileImageMove(),
+          Shimmers(),
+      // SlideToUnlockPage(),
     );
   }
 }
