@@ -44,6 +44,10 @@ dependencies:
   shimmer: ^3.0.0
   cached_network_image: ^3.2.0
   lottie: any
+  flutter_qiblah: any
+  flutter_svg: any
+  google_maps_flutter: any
+  flutter_compass: ^0.7.0
 
 
 dev_dependencies:

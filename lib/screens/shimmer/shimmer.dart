@@ -15,12 +15,9 @@ class Shimmers extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-
             Lottie.asset('assets/kkk.json'),
             Lottie.network(
                 'https://raw.githubusercontent.com/xvrh/lottie-flutter/master/example/assets/Mobilo/A.json'),
-
-
             CachedNetworkImage(
               imageUrl:
                   'https://img.freepik.com/premium-photo/image-colorful-galaxy-sky-generative-ai_791316-9864.jpg',
@@ -57,18 +54,14 @@ class Shimmers extends StatelessWidget {
               //         ),
               //       ),
               //     ),
-              cacheManager: CacheManager(
-                  Config(
-                      'customCacheKey',
-                      stalePeriod: const Duration(days: 70)
-                  )
-              ),
-              errorWidget: (context, url, error) =>
-              const Text(
+              cacheManager: CacheManager(Config('customCacheKey',
+                  stalePeriod: const Duration(days: 70))),
+              errorWidget: (context, url, error) => const Text(
                 'Error',
                 style: TextStyle(color: Colors.white, fontSize: 40),
-              ),    progressIndicatorBuilder: (context, url, downloadProgress) =>
-                CircularProgressIndicator(value: downloadProgress.progress),
+              ),
+              progressIndicatorBuilder: (context, url, downloadProgress) =>
+                  CircularProgressIndicator(value: downloadProgress.progress),
             ),
           ],
         ),
@@ -345,54 +338,3 @@ class ContentPlaceholder extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

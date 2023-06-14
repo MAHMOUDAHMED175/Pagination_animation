@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'screens/shimmer/shimmer.dart';
+import 'screens/compass/compass.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,8 +25,10 @@ class MyApp extends StatelessWidget {
           // const AlertAnimate(),
           // ContainerRotate(),
           //   const ProfileImageMove(),
-          const Shimmers(),
-      // SlideToUnlockPage(),
+          // const Shimmers(),
+          // SlideToUnlockPage(),
+          // qiblahh(),
+          const Compass(),
     );
   }
 }
