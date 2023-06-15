@@ -46,7 +46,6 @@ dependencies:
   lottie: any
   flutter_qiblah: any
   flutter_svg: any
-  google_maps_flutter: any
   flutter_compass: ^0.7.0
   geolocator: ^9.0.2
   geocoding: ^2.1.0

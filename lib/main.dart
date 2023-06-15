@@ -2,6 +2,7 @@ import 'package:animation/screens/locatoin/location_address.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/compass/compass.dart';
+import 'screens/qiblah/qiblah_maps.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,8 +31,8 @@ class MyApp extends StatelessWidget {
           // SlideToUnlockPage(),
           // qiblahh(),
           // const Compass(),
-      const Location(),
-
+      // const Location(),
+      QiblahMaps(),
 
 
 
