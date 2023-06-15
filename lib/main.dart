@@ -1,3 +1,4 @@
+import 'package:animation/screens/locatoin/location_address.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/compass/compass.dart';
@@ -28,7 +29,12 @@ class MyApp extends StatelessWidget {
           // const Shimmers(),
           // SlideToUnlockPage(),
           // qiblahh(),
-          const Compass(),
+          // const Compass(),
+      const Location(),
+
+
+
+
     );
   }
 }
