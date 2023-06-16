@@ -1,10 +1,11 @@
-import 'package:animation/screens/locatoin/location_address.dart';
+import 'package:animation/screens/time_prayer/dioHelper.dart';
+import 'package:animation/screens/time_prayer/json_connection.dart';
+import 'package:animation/screens/time_prayer/pray.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
-import 'screens/compass/compass.dart';
-import 'screens/qiblah/qiblah_maps.dart';
-
-void main() {
+void main() async {
+  await DioHelper.Init();
   runApp(const MyApp());
 }
 
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
@@ -31,11 +33,9 @@ class MyApp extends StatelessWidget {
           // SlideToUnlockPage(),
           // qiblahh(),
           // const Compass(),
-      // const Location(),
-      QiblahMaps(),
-
-
-
+          // const Location(),
+          // QiblahMaps(),
+          PrayTimes(),
     );
   }
 }

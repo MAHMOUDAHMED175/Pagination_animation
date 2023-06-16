@@ -39,8 +39,10 @@ class _qiblahhState extends State<qiblahh> {
             }
             if (snapshot.data!) {
               return QiblahCompass();
-            } else {
-              return QiblahMaps();
+            }
+            else {
+              return Container();
+                // QiblahMaps();
             }
           },
         ),
