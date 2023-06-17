@@ -4,6 +4,8 @@ import 'package:animation/screens/time_prayer/pray.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
+import 'screens/shimmer_lottie_cache_network_image_glass/shimmer.dart';
+
 void main() async {
   await DioHelper.Init();
   runApp(const MyApp());
@@ -29,13 +31,13 @@ class MyApp extends StatelessWidget {
           // const AlertAnimate(),
           // ContainerRotate(),
           //   const ProfileImageMove(),
-          // const Shimmers(),
+          const Shimmers(),
           // SlideToUnlockPage(),
           // qiblahh(),
           // const Compass(),
           // const Location(),
           // QiblahMaps(),
-          PrayTimes(),
+          // PrayTimes(),
     );
   }
 }

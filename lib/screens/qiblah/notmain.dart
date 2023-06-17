@@ -1,6 +1,5 @@
 import 'package:animation/screens/qiblah/loading_indicator.dart';
 import 'package:animation/screens/qiblah/qiblah_compass.dart';
-import 'package:animation/screens/qiblah/qiblah_maps.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_qiblah/flutter_qiblah.dart';
 
@@ -39,10 +38,9 @@ class _qiblahhState extends State<qiblahh> {
             }
             if (snapshot.data!) {
               return QiblahCompass();
-            }
-            else {
+            } else {
               return Container();
-                // QiblahMaps();
+              // QiblahMaps();
             }
           },
         ),
