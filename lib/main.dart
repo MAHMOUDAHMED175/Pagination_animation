@@ -1,18 +1,19 @@
-import 'package:animation/screens/time_prayer/dioHelper.dart';
-import 'package:animation/screens/time_prayer/json_connection.dart';
-import 'package:animation/screens/time_prayer/pray.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 
-import 'screens/shimmer_lottie_cache_network_image_glass/shimmer.dart';
+import 'screens/notification/awsome_local_notification/notification1.dart';
+import 'screens/notification/awsome_local_notification/notification_service.dart';
 
 void main() async {
-  await DioHelper.Init();
+  WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService.initializeNotification();
+  // await DioHelper.Init();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
+  static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   // This widget is the root of your application.
   @override
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
+      navigatorKey: navigatorKey,
       home:
           // Containerr(),
           // Cube(),
@@ -31,13 +33,14 @@ class MyApp extends StatelessWidget {
           // const AlertAnimate(),
           // ContainerRotate(),
           //   const ProfileImageMove(),
-          const Shimmers(),
+          // const Shimmers(),
           // SlideToUnlockPage(),
           // qiblahh(),
           // const Compass(),
           // const Location(),
           // QiblahMaps(),
           // PrayTimes(),
+          NotificationAwesome(),
     );
   }
 }
